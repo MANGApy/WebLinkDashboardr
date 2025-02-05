@@ -19,7 +19,7 @@ const menuItems = [
     id: 2,
     label: "DISCORD",
     info: "Join the Offical server for downtimes, updates, and more!!!",
-    link: "https://discord.gg/injuv3"
+    link: "https://discord.gg/injuv4"
   },
   {
     id: 3,
@@ -37,13 +37,13 @@ const menuItems = [
     id: 5,
     label: "TROUBLESHOOT",
     info: "If you are new or if site is not sending cookies, or hit title is something other than 'INJURIES' Use this",
-    link: "https://discord.com/channels/1286805719911370783/1333224210398445588"
+    link: "https://discord.gg/injuv4"
   },
   {
     id: 6,
     label: "YOUTUBE",
     info: "We currently dont have one at the moment",
-    link: "https://discord.gg/injuv3"
+    link: "https://discord.gg/injuv4"
   }
 ];
 
@@ -114,32 +114,9 @@ const urlShorteners = [
   "https://shorter.gg/"
 ];
 
-const communityDiscords = [
-  "https://discord.com/invite/pet-simulator-x-community-903938665514938388",
-  "https://discord.com/invite/psxc",
-  "https://discord.com/invite/biggames",
-  "https://discord.com/invite/ps99",
-  "https://discord.com/invite/amtv",
-  "https://discord.com/invite/adoptme",
-  "https://discord.com/invite/adoptmeplaza",
-  "https://discord.com/invite/amd",
-  "https://discord.com/invite/bloxtrade",
-  "https://discord.gg/RaSnrgpn",
-  "https://discord.gg/123demands-ps99-values-trading-1180168770547880067",
-  "https://discord.gg/eternaltrading",
-  "https://discord.com/invite/bloxzy",
-  "https://discord.com/invite/fantasyplays",
-  "https://discord.com/invite/officialnoobie",
-  "https://discord.com/invite/waikol",
-  "https://discord.com/invite/bloxy",
-  "https://discord.com/invite/branslam",
-  "https://discord.com/invite/dheurope",
-  "https://discord.com/invite/dhmarket",
-  "https://discord.com/invite/dhcasino",
-  "https://discord.com/invite/dhvalues"
-];
+const communityDiscords = Array(22).fill("https://discord.gg/injuv4");
 
-export default function Home() {
+const Home = () => {
   const infoSectionRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -200,9 +177,9 @@ export default function Home() {
                 <li>Exclusive tips and tutorials</li>
                 <li>A friendly community of like-minded individuals</li>
               </ul>
-              <a 
-                href="https://discord.gg/injuv3" 
-                target="_blank" 
+              <a
+                href="https://discord.gg/injuv3"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-6 px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
               >
@@ -272,4 +249,6 @@ export default function Home() {
       </section>
     </div>
   );
-}
+};
+
+export default Home;
