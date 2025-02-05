@@ -16,6 +16,8 @@ export function registerRoutes(app: Express): Server {
         return res.status(400).json({ error: 'Message is required' });
       }
 
+      console.log('Processing chat message:', message); // Debug log
+
       const response = await openai.chat.completions.create({
         model: "gpt-4o",
         messages: [
@@ -25,13 +27,19 @@ export function registerRoutes(app: Express): Server {
           },
           { role: "user", content: message }
         ],
+        temperature: 0.7,
         max_tokens: 150
       });
 
+      console.log('OpenAI response received:', response.choices[0].message); // Debug log
       res.json({ message: response.choices[0].message.content });
     } catch (error) {
       console.error('OpenAI API error:', error);
-      res.status(500).json({ error: 'Failed to get AI response' });
+      // Send a more detailed error message to help with debugging
+      res.status(500).json({ 
+        error: 'Failed to get AI response',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
     }
   });
 

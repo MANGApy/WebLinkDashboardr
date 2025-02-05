@@ -24,21 +24,14 @@ const tourSteps = [
 export default function GuidedTour() {
   const [isVisible, setIsVisible] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
-  const [hasCompletedTour, setHasCompletedTour] = useState(false);
+  const [isTourComplete, setIsTourComplete] = useState(false);
 
   useEffect(() => {
     const tourCompleted = localStorage.getItem('guidedTourCompleted');
     if (tourCompleted === 'true') {
-      setHasCompletedTour(true);
-      setIsVisible(false);
+      setIsTourComplete(true);
     }
   }, []);
-
-  const completeTour = () => {
-    setHasCompletedTour(true);
-    localStorage.setItem('guidedTourCompleted', 'true');
-    setIsVisible(false);
-  };
 
   const nextStep = () => {
     if (currentStep < tourSteps.length - 1) {
@@ -48,11 +41,17 @@ export default function GuidedTour() {
     }
   };
 
+  const completeTour = () => {
+    setIsTourComplete(true);
+    localStorage.setItem('guidedTourCompleted', 'true');
+    setIsVisible(false);
+  };
+
   const closeModal = () => {
     setIsVisible(false);
   };
 
-  if (!isVisible || hasCompletedTour) return null;
+  if (!isVisible || isTourComplete) return null;
 
   return (
     <AnimatePresence>
