@@ -24,15 +24,18 @@ const tourSteps = [
 export default function GuidedTour() {
   const [isVisible, setIsVisible] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
+  const [hasCompletedTour, setHasCompletedTour] = useState(false);
 
   useEffect(() => {
     const tourCompleted = localStorage.getItem('guidedTourCompleted');
-    if (tourCompleted) {
+    if (tourCompleted === 'true') {
+      setHasCompletedTour(true);
       setIsVisible(false);
     }
   }, []);
 
   const completeTour = () => {
+    setHasCompletedTour(true);
     localStorage.setItem('guidedTourCompleted', 'true');
     setIsVisible(false);
   };
@@ -45,7 +48,11 @@ export default function GuidedTour() {
     }
   };
 
-  if (!isVisible) return null;
+  const closeModal = () => {
+    setIsVisible(false);
+  };
+
+  if (!isVisible || hasCompletedTour) return null;
 
   return (
     <AnimatePresence>
@@ -56,7 +63,7 @@ export default function GuidedTour() {
         className="fixed bottom-8 right-8 w-96 bg-black border-2 border-red-500 rounded-lg p-6 shadow-lg z-50"
       >
         <button
-          onClick={completeTour}
+          onClick={closeModal}
           className="absolute top-4 right-4 text-gray-400 hover:text-white"
         >
           <X size={20} />

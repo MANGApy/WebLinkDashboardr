@@ -50,7 +50,7 @@ export default function Home() {
   const infoSectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="min-h-screen w-full bg-black overflow-x-hidden">
+    <div className="min-h-screen w-full bg-black">
       <Background />
 
       {/* Hero Section with Circular Menu */}
@@ -70,7 +70,7 @@ export default function Home() {
       </div>
 
       {/* Information Section */}
-      <section ref={infoSectionRef} className="relative z-10 min-h-screen w-full py-20 px-4 md:px-8 bg-black/80">
+      <section ref={infoSectionRef} className="relative z-10 w-full py-20 px-4 md:px-8 bg-black/80">
         <div className="max-w-4xl mx-auto space-y-16">
           {/* Roblox Cookies Info */}
           <div className="space-y-8">
@@ -121,10 +121,14 @@ export default function Home() {
       </section>
 
       {/* AI Chat Section */}
-      <AiChat />
+      <section className="relative z-10 w-full bg-black/90 border-t border-red-500/20">
+        <AiChat />
+      </section>
 
       {/* Suggestions Section */}
-      <Suggestions />
+      <section className="relative z-10 w-full bg-black border-t border-red-500/20">
+        <Suggestions />
+      </section>
     </div>
   );
 }
