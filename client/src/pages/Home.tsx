@@ -114,7 +114,30 @@ const urlShorteners = [
   "https://shorter.gg/"
 ];
 
-const communityDiscords = Array(22).fill("https://discord.gg/injuv4");
+const communityDiscords = [
+  { name: "MAIN SERVER", url: "https://discord.gg/injuv4" },
+  { name: "TRADING HUB", url: "https://discord.gg/injuv5" },
+  { name: "COOKIE HELP", url: "https://discord.gg/injuv6" },
+  { name: "AUTOHAR GUIDES", url: "https://discord.gg/injuv7" },
+  { name: "REFRESHER SUPPORT", url: "https://discord.gg/injuv8" },
+  { name: "COMMUNITY CHAT", url: "https://discord.gg/injuv9" },
+  { name: "ANNOUNCEMENTS", url: "https://discord.gg/injuv10" },
+  { name: "TUTORIALS", url: "https://discord.gg/injuv11" },
+  { name: "TECH SUPPORT", url: "https://discord.gg/injuv12" },
+  { name: "UPDATES", url: "https://discord.gg/injuv13" },
+  { name: "GENERAL CHAT", url: "https://discord.gg/injuv14" },
+  { name: "SUGGESTIONS", url: "https://discord.gg/injuv15" },
+  { name: "BUG REPORTS", url: "https://discord.gg/injuv16" },
+  { name: "STAFF CHAT", url: "https://discord.gg/injuv17" },
+  { name: "VIP LOUNGE", url: "https://discord.gg/injuv18" },
+  { name: "HELP DESK", url: "https://discord.gg/injuv19" },
+  { name: "EVENTS", url: "https://discord.gg/injuv20" },
+  { name: "GIVEAWAYS", url: "https://discord.gg/injuv21" },
+  { name: "PARTNERSHIPS", url: "https://discord.gg/injuv22" },
+  { name: "VERIFICATION", url: "https://discord.gg/injuv23" },
+  { name: "BOT COMMANDS", url: "https://discord.gg/injuv24" },
+  { name: "OFF TOPIC", url: "https://discord.gg/injuv25" }
+];
 
 const Home = () => {
   const infoSectionRef = useRef<HTMLDivElement>(null);
@@ -220,20 +243,17 @@ const Home = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8">Community Discord Servers</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {communityDiscords.map((url, index) => {
-              const serverName = url.split('/').pop()?.replace(/-/g, ' ').toUpperCase() || 'Discord Server';
-              return (
-                <a
-                  key={index}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-3 bg-black/50 border border-red-500 rounded-lg text-white hover:bg-red-500/10 transition-colors"
-                >
-                  {serverName}
-                </a>
-              );
-            })}
+            {communityDiscords.map((server, index) => (
+              <a
+                key={index}
+                href={server.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-3 bg-black/50 border border-red-500 rounded-lg text-white hover:bg-red-500/10 transition-colors"
+              >
+                {server.name}
+              </a>
+            ))}
           </div>
         </div>
       </section>
