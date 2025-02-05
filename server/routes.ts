@@ -35,7 +35,12 @@ export function registerRoutes(app: Express): Server {
       res.json({ message: response.choices[0].message.content });
     } catch (error) {
       console.error('OpenAI API error:', error);
-      // Send a more detailed error message to help with debugging
+      if (!process.env.OPENAI_API_KEY) {
+        return res.status(500).json({
+          error: 'OpenAI API key not found',
+          details: 'Please add OPENAI_API_KEY to your Replit Secrets'
+        });
+      }
       res.status(500).json({ 
         error: 'Failed to get AI response',
         details: error instanceof Error ? error.message : 'Unknown error'
