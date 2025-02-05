@@ -1,10 +1,10 @@
 import { Handler } from '@netlify/functions';
-import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from "openai";
 
-// the newest Anthropic model is "claude-3-5-sonnet-20241022" which was released October 22, 2024
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export const handler: Handler = async (event) => {
+  // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -18,7 +18,7 @@ export const handler: Handler = async (event) => {
     // Handle chat endpoint
     if (path === '/chat') {
       const { message } = JSON.parse(event.body || '{}');
-
+      
       if (!message) {
         return {
           statusCode: 400,
@@ -26,9 +26,8 @@ export const handler: Handler = async (event) => {
         };
       }
 
-      const response = await anthropic.messages.create({
-        model: "claude-3-5-sonnet-20241022",
-        max_tokens: 1024,
+      const response = await openai.chat.completions.create({
+        model: "gpt-4",
         messages: [
           {
             role: "system",
@@ -36,18 +35,20 @@ export const handler: Handler = async (event) => {
           },
           { role: "user", content: message }
         ],
+        temperature: 0.7,
+        max_tokens: 150
       });
 
       return {
         statusCode: 200,
-        body: JSON.stringify({ message: response.content[0].text }),
+        body: JSON.stringify({ message: response.choices[0].message.content }),
       };
     }
 
     // Handle suggestions endpoint
     if (path === '/suggestions') {
       const { suggestion } = JSON.parse(event.body || '{}');
-
+      
       if (!suggestion) {
         return {
           statusCode: 400,
@@ -55,6 +56,7 @@ export const handler: Handler = async (event) => {
         };
       }
 
+      // Send to Discord webhook
       const webhookResponse = await fetch(process.env.DISCORD_WEBHOOK_URL || '', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
