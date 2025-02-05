@@ -58,7 +58,7 @@ const tutorialVideos = [
     id: "inju-domain",
     title: "How to Use the INJU.CC Domain",
     description: "Complete guide on using the INJU.CC domain effectively",
-    url: "https://cdn.discordapp.com/attachments/1321963106141995078/1331076720438149172/BF1E439E-953D-44D3-A66B-4DB2A2813425.mov"
+    url: "https://streamable.com/88h7ka"
   },
   {
     id: "cookie-pc",
