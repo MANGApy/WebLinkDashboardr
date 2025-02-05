@@ -19,7 +19,7 @@ export function registerRoutes(app: Express): Server {
       console.log('Processing chat message:', message); // Debug log
 
       const response = await openai.chat.completions.create({
-        model: "gpt-4o",
+        model: "gpt-4",
         messages: [
           {
             role: "system",
