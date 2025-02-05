@@ -3,6 +3,8 @@ import Background from "@/components/Background";
 import CircularMenu from "@/components/CircularMenu";
 import PulsatingTitle from "@/components/PulsatingTitle";
 import GuidedTour from "@/components/GuidedTour";
+import AiChat from "@/components/AiChat";
+import Suggestions from "@/components/Suggestions";
 import { Info, Shield, MessageCircle } from 'lucide-react';
 
 const menuItems = [
@@ -118,7 +120,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Additional sections for video tutorials, AI chat, and suggestions will be added here */}
+      {/* AI Chat Section */}
+      <AiChat />
+
+      {/* Suggestions Section */}
+      <Suggestions />
     </div>
   );
 }
