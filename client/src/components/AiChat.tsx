@@ -31,7 +31,12 @@ export default function AiChat() {
 
       setMessages(prev => [...prev, { role: 'assistant', content: data.message }]);
     } catch (error) {
-      console.error('Chat error:', error);
+      console.error('Chat error details:', {
+        message: error.message,
+        status: error.status,
+        response: error.response,
+        stack: error.stack
+      });
       setMessages(prev => [...prev, { 
         role: 'error', 
         content: error instanceof Error ? error.message : 'Failed to get AI response. Please check if OPENAI_API_KEY is set in your Replit Secrets.' 
