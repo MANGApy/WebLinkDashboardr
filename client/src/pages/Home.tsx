@@ -5,6 +5,7 @@ import PulsatingTitle from "@/components/PulsatingTitle";
 import GuidedTour from "@/components/GuidedTour";
 import AiChat from "@/components/AiChat";
 import Suggestions from "@/components/Suggestions";
+import VideoTutorials from "@/components/VideoTutorials";
 import { Info, Shield, MessageCircle } from 'lucide-react';
 
 const menuItems = [
@@ -43,6 +44,15 @@ const menuItems = [
     label: "YOUTUBE",
     info: "We currently dont have one at the moment",
     link: "https://discord.gg/injuv3"
+  }
+];
+
+const placeholderVideos = [
+  {
+    id: "placeholder1",
+    title: "Coming Soon",
+    description: "Tutorial videos will be added here. Please check back later.",
+    url: "#"
   }
 ];
 
@@ -118,6 +128,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Video Tutorials Section */}
+      <section className="relative z-10 w-full bg-black/90 border-t border-red-500/20">
+        <VideoTutorials videos={placeholderVideos} />
       </section>
 
       {/* AI Chat Section */}

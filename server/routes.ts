@@ -6,6 +6,7 @@ import OpenAI from "openai";
 // Initialize OpenAI client
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
+// the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
 export function registerRoutes(app: Express): Server {
   // Chat endpoint
   app.post('/api/chat', async (req, res) => {
@@ -16,7 +17,7 @@ export function registerRoutes(app: Express): Server {
       }
 
       const response = await openai.chat.completions.create({
-        model: "gpt-4",
+        model: "gpt-4o",
         messages: [
           {
             role: "system",
