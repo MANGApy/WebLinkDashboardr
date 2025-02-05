@@ -34,7 +34,7 @@ export default function AiChat() {
       console.error('Chat error:', error);
       setMessages(prev => [...prev, { 
         role: 'error', 
-        content: error instanceof Error ? error.message : 'An error occurred while processing your message. Please try again.' 
+        content: error instanceof Error ? error.message : 'Failed to get AI response. Please check if OPENAI_API_KEY is set in your Replit Secrets.' 
       }]);
     } finally {
       setIsLoading(false);
