@@ -1,0 +1,14 @@
+Make a website that has a black background and has 6 rectangular link buttons with white bold buttons in circle around the screen. And when hovering over a button it will glow red and have a animation that makes it get bigger, and have a info box the describes the link and where it will take you with a black background and grey colored letters and make the button highlight show black and a outline of thick white. Then make the title of the page be in the dead center of the circle of buttons having a pulsating animation saying "INJU" with BIG bold letters and white color. make floating random red dots in the back ground floating, disappearing, and appearing in all directions, and make the red dots visible and standout and make alot of them. Make a big red ball with 75 percent opacity, have red rings like saturn wobble side to side and up and down. put the a cresent white moon in the top right of the screen that glows and a white round sun in the top left of the screen that glows and make them wobble in place.
+Make the label, info, and link this for each 6 buttons. 
+
+{ id: 1, label: "INJU.CC", info: "This is the main website to the inju.cc domain, if you are new please follow troubleshooting steps" Link: "https://inju.cc/u/MainControlPage"
+
+{ id: 2, label: "DISCORD", info: "Join the Offical server for downtimes, updates, and more!!!", Link: "https://discord.gg/injuv3"
+
+{ id: 3, label: "AUTOHAR", info: "Autohar is a way of tricking someone into giving you there ps through a website (AUTOHAR IS NOT MINE)" Link: "https://bloxtools.in/controlPage/create"
+
+{ id: 4, label: "REFRESHER", info: "Refresh your cookies that you get to prevent theft over others if wanted" Link: "https://inju.cc/tools/refresher"
+
+{ id: 5, label: "TROUBLESHOOT", info: "If you are new or if site is not sending cookies, or hit title is something other than 'INJURIES' Use this", Link: "https://discord.com/channels/1286805719911370783/1333224210398445588"
+
+{ id: 6, label: "YOUTUBE", info: "We currently dont have one at the moment", Link: "https://discord.gg/injuv3"
