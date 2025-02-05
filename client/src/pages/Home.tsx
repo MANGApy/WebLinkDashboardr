@@ -47,13 +47,96 @@ const menuItems = [
   }
 ];
 
-const placeholderVideos = [
+const tutorialVideos = [
   {
-    id: "placeholder1",
-    title: "Coming Soon",
-    description: "Tutorial videos will be added here. Please check back later.",
-    url: "#"
+    id: "tiktok",
+    title: "How to Go Live on TikTok",
+    description: "Step by step tutorial on starting a TikTok live stream",
+    url: "https://www.youtube.com/watch?si=jz0T6mqcr1T3pB-0&v=Yx2jTQ4g5Mc&feature=youtu.be"
+  },
+  {
+    id: "inju-domain",
+    title: "How to Use the INJU.CC Domain",
+    description: "Complete guide on using the INJU.CC domain effectively",
+    url: "https://cdn.discordapp.com/attachments/1321963106141995078/1331076720438149172/BF1E439E-953D-44D3-A66B-4DB2A2813425.mov"
+  },
+  {
+    id: "cookie-pc",
+    title: "How To Use Cookie (PC)",
+    description: "Tutorial for PC users on cookie management",
+    url: "https://streamable.com/qy3kc4"
+  },
+  {
+    id: "cookie-iphone",
+    title: "How to Use Cookie (iPhone)",
+    description: "iPhone-specific tutorial for cookie management",
+    url: "https://streamable.com/9mfj27"
+  },
+  {
+    id: "cookie-android",
+    title: "How to Use Cookie (Android)",
+    description: "Android-specific tutorial for cookie management",
+    url: "https://streamable.com/75qpxd"
+  },
+  {
+    id: "cookie-setup",
+    title: "How to Setup Cookie",
+    description: "General setup guide for cookie configuration",
+    url: "https://streamable.com/c98on3"
+  },
+  {
+    id: "cc-autohar",
+    title: "CC AUTOHAR",
+    description: "Tutorial for CC AUTOHAR system",
+    url: "https://streamable.com/kr96mr"
+  },
+  {
+    id: "fbot-autohar",
+    title: "FBOT AUTOHAR",
+    description: "Guide for FBOT AUTOHAR implementation",
+    url: "https://streamable.com/opjylx"
+  },
+  {
+    id: "cg-autohar",
+    title: "CG AUTOHAR",
+    description: "Complete guide for CG AUTOHAR system",
+    url: "https://streamable.com/q1g0fh"
   }
+];
+
+const urlShorteners = [
+  "https://www.shorturl.asia/en/",
+  "https://is.gd/",
+  "https://spoo.me/",
+  "https://click.ly/",
+  "https://tiny.cc/",
+  "https://shorter.me/",
+  "https://shorter.gg/"
+];
+
+const communityDiscords = [
+  "https://discord.com/invite/pet-simulator-x-community-903938665514938388",
+  "https://discord.com/invite/psxc",
+  "https://discord.com/invite/biggames",
+  "https://discord.com/invite/ps99",
+  "https://discord.com/invite/amtv",
+  "https://discord.com/invite/adoptme",
+  "https://discord.com/invite/adoptmeplaza",
+  "https://discord.com/invite/amd",
+  "https://discord.com/invite/bloxtrade",
+  "https://discord.gg/RaSnrgpn",
+  "https://discord.gg/123demands-ps99-values-trading-1180168770547880067",
+  "https://discord.gg/eternaltrading",
+  "https://discord.com/invite/bloxzy",
+  "https://discord.com/invite/fantasyplays",
+  "https://discord.com/invite/officialnoobie",
+  "https://discord.com/invite/waikol",
+  "https://discord.com/invite/bloxy",
+  "https://discord.com/invite/branslam",
+  "https://discord.com/invite/dheurope",
+  "https://discord.com/invite/dhmarket",
+  "https://discord.com/invite/dhcasino",
+  "https://discord.com/invite/dhvalues"
 ];
 
 export default function Home() {
@@ -132,7 +215,50 @@ export default function Home() {
 
       {/* Video Tutorials Section */}
       <section className="relative z-10 w-full bg-black/90 border-t border-red-500/20">
-        <VideoTutorials videos={placeholderVideos} />
+        <VideoTutorials videos={tutorialVideos} />
+      </section>
+
+      {/* URL Shorteners Section */}
+      <section className="relative z-10 w-full py-20 px-4 md:px-8 bg-black/80 border-t border-red-500/20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-white mb-8">URL Shorteners</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {urlShorteners.map((url, index) => (
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-3 bg-black/50 border border-red-500 rounded-lg text-white hover:bg-red-500/10 transition-colors"
+              >
+                {new URL(url).hostname.replace('www.', '')}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Discords Section */}
+      <section className="relative z-10 w-full py-20 px-4 md:px-8 bg-black border-t border-red-500/20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-white mb-8">Community Discord Servers</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {communityDiscords.map((url, index) => {
+              const serverName = url.split('/').pop()?.replace(/-/g, ' ').toUpperCase() || 'Discord Server';
+              return (
+                <a
+                  key={index}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-3 bg-black/50 border border-red-500 rounded-lg text-white hover:bg-red-500/10 transition-colors"
+                >
+                  {serverName}
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       {/* AI Chat Section */}
