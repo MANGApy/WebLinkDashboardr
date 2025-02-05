@@ -36,7 +36,7 @@ export default function CircularMenu({ items }: CircularMenuProps) {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative block w-40 py-3 px-6 bg-transparent text-white font-bold text-center border-2 border-white rounded hover:border-red-500 transition-colors"
+              className="relative flex items-center justify-center w-24 h-24 rounded-full bg-transparent text-white font-bold border-2 border-white hover:border-red-500 transition-colors"
               onHoverStart={() => setActiveItem(item)}
               onHoverEnd={() => setActiveItem(null)}
               whileHover={{
@@ -44,8 +44,17 @@ export default function CircularMenu({ items }: CircularMenuProps) {
                 backgroundColor: "#000",
                 boxShadow: "0 0 20px rgba(255, 0, 0, 0.5)",
               }}
+              animate={{
+                scale: [1, 1.05, 1],
+                borderColor: ["rgba(255,255,255,0.6)", "rgba(255,255,255,1)", "rgba(255,255,255,0.6)"]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
             >
-              {item.label}
+              <span className="text-center px-2">{item.label}</span>
 
               <AnimatePresence>
                 {activeItem?.id === item.id && (

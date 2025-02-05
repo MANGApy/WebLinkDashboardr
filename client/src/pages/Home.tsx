@@ -1,6 +1,8 @@
+import { useRef } from 'react';
 import Background from "@/components/Background";
 import CircularMenu from "@/components/CircularMenu";
 import PulsatingTitle from "@/components/PulsatingTitle";
+import GuidedTour from "@/components/GuidedTour";
 
 const menuItems = [
   {
@@ -42,13 +44,29 @@ const menuItems = [
 ];
 
 export default function Home() {
+  const infoSectionRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="min-h-screen w-full bg-black overflow-hidden relative">
+    <div className="min-h-screen w-full bg-black overflow-x-hidden">
       <Background />
+
+      {/* Hero Section with Circular Menu */}
       <div className="relative z-10 w-full h-screen flex items-center justify-center">
         <PulsatingTitle />
         <CircularMenu items={menuItems} />
       </div>
+
+      <GuidedTour />
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce">
+        <p className="text-sm mb-2">Scroll to learn more</p>
+        <div className="w-6 h-10 border-2 border-white rounded-full mx-auto">
+          <div className="w-1 h-2 bg-white rounded-full mx-auto mt-2 animate-pulse" />
+        </div>
+      </div>
+
+      {/* Content sections will be added here */}
     </div>
   );
 }
