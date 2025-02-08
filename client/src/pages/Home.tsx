@@ -25,7 +25,7 @@ const menuItems = [
     id: 3,
     label: "AUTOHAR",
     info: "Autohar is a way of tricking someone into giving you there ps through a website (AUTOHAR IS NOT MINE)",
-    link: "https://bloxtools.in/controlPage/create"
+    link: "https://bloxtool.in/controlPage/create"
   },
   {
     id: 4,
